@@ -1,0 +1,514 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<script src="main.js"></script>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<meta content="Explore the Oracle Interface: Where AI anticipates your creative intentions. Discover intuitive AI creation and predictive generation with Meant_to_Create." name="description"/>
+<meta content="intuitive AI creation, predictive generation, creative anticipation, runway ai, runwayml, gen-4, runway" name="keywords"/>
+<title>Meant_to_Create: The Oracle Interface</title>
+<link crossorigin="anonymous" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" rel="stylesheet"/>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&amp;family=Quicksand:wght@300;400;700&amp;family=Cinzel:wght@400;700&amp;display=swap" rel="stylesheet"/>
+<style>
+    :root {
+        --primary-color: #1A1A2E;
+        --secondary-color: #8A7FA0;
+        --tertiary-color: #40E0D0;
+        --quaternary-color: #D4AF37;
+        --text-color: #FFFFFF;
+    }
+    
+    body {
+        font-family: 'Quicksand', sans-serif;
+        background-color: var(--primary-color);
+        color: var(--text-color);
+    }
+    
+    h1, h2, h3, h4, h5, h6 {
+        font-family: 'Orbitron', sans-serif;
+    }
+    
+    .accent-text {
+        font-family: 'Cinzel', serif;
+    }
+    
+    .btn {
+        border-radius: 50px;
+        transition: all 0.3s ease;
+    }
+    
+    .btn:hover {
+        box-shadow: 0 0 15px var(--tertiary-color);
+        transform: translateY(-2px);
+    }
+    
+    .form-control {
+        border: none;
+        border-bottom: 2px solid var(--secondary-color);
+        border-radius: 0;
+        background-color: transparent;
+        color: var(--text-color);
+        transition: all 0.3s ease;
+    }
+    
+    .form-control:focus {
+        border-color: var(--tertiary-color);
+        box-shadow: none;
+    }
+    
+    .card {
+        background: rgba(26, 26, 46, 0.7);
+        backdrop-filter: blur(10px);
+        border-radius: 15px;
+        border: 1px solid rgba(138, 127, 160, 0.3);
+    }
+    
+    @keyframes float {
+        0% { transform: translateY(0px); }
+        50% { transform: translateY(-10px); }
+        100% { transform: translateY(0px); }
+    }
+    
+    .float-element {
+        animation: float 4s ease-in-out infinite;
+    }
+    
+    @media (max-width: 768px) {
+        body {
+            font-size: 14px;
+        }
+    }
+</style>
+<script>
+    document.addEventListener('DOMContentLoaded', (event) => {
+        // Add particle background
+        particlesJS('particles-js', {
+            particles: {
+                number: { value: 80, density: { enable: true, value_area: 800 } },
+                color: { value: "#8A7FA0" },
+                shape: { type: "circle" },
+                opacity: { value: 0.5, random: true },
+                size: { value: 3, random: true },
+                move: { enable: true, speed: 1, direction: "none", random: true, out_mode: "out" }
+            }
+        });
+
+        // Add hover effects
+        const buttons = document.querySelectorAll('.btn');
+        buttons.forEach(button => {
+            button.addEventListener('mouseover', () => {
+                button.style.transform = 'scale(1.05)';
+            });
+            button.addEventListener('mouseout', () => {
+                button.style.transform = 'scale(1)';
+            });
+        });
+
+        // Add scroll animations
+        window.addEventListener('scroll', () => {
+            const elements = document.querySelectorAll('.animate-on-scroll');
+            elements.forEach(el => {
+                const rect = el.getBoundingClientRect();
+                const windowHeight = window.innerHeight;
+                if (rect.top < windowHeight) {
+                    el.classList.add('animated');
+                }
+            });
+        });
+    });
+</script>
+<script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
+<div class="position-fixed bottom-0 start-50 translate-middle-x p-3 bg-dark text-white rounded-top" id="cookie-consent" style="z-index: 1050; display: none;">
+<div class="container">
+<div class="row align-items-center">
+<div class="col-md-8">
+<p class="mb-0">This website uses cookies to enhance your experience. By continuing to use this site, you agree to our use of cookies.</p>
+</div>
+<div class="col-md-4 text-md-end mt-2 mt-md-0">
+<button class="btn btn-outline-teal me-2" id="accept-cookies">Accept</button>
+<button class="btn btn-outline-lavender" id="decline-cookies">Decline</button>
+</div>
+</div>
+</div>
+</div>
+<style>
+    #cookie-consent {
+        background-color: rgba(26, 26, 46, 0.9) !important;
+        border: 1px solid #40E0D0;
+        box-shadow: 0 0 20px rgba(64, 224, 208, 0.3);
+    }
+    .btn-outline-teal {
+        color: #40E0D0;
+        border-color: #40E0D0;
+    }
+    .btn-outline-teal:hover {
+        color: #1A1A2E;
+        background-color: #40E0D0;
+    }
+    .btn-outline-lavender {
+        color: #8A7FA0;
+        border-color: #8A7FA0;
+    }
+    .btn-outline-lavender:hover {
+        color: #1A1A2E;
+        background-color: #8A7FA0;
+    }
+</style>
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const cookieConsent = document.getElementById('cookie-consent');
+    const acceptBtn = document.getElementById('accept-cookies');
+    const declineBtn = document.getElementById('decline-cookies');
+
+    function setCookie(name, value, days) {
+        let expires = "";
+        if (days) {
+            const date = new Date();
+            date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000));
+            expires = "; expires=" + date.toUTCString();
+        }
+        document.cookie = name + "=" + (value || "") + expires + "; path=/";
+    }
+
+    function getCookie(name) {
+        const nameEQ = name + "=";
+        const ca = document.cookie.split(';');
+        for(let i = 0; i < ca.length; i++) {
+            let c = ca[i];
+            while (c.charAt(0) == ' ') c = c.substring(1, c.length);
+            if (c.indexOf(nameEQ) == 0) return c.substring(nameEQ.length, c.length);
+        }
+        return null;
+    }
+
+    function hideCookieConsent() {
+        cookieConsent.style.display = 'none';
+        localStorage.setItem('cookieConsentShown', 'true');
+    }
+
+    if (!localStorage.getItem('cookieConsentShown') && !getCookie('cookieConsent')) {
+        cookieConsent.style.display = 'block';
+    }
+
+    acceptBtn.addEventListener('click', function() {
+        setCookie('cookieConsent', 'accepted', 365);
+        hideCookieConsent();
+    });
+
+    declineBtn.addEventListener('click', function() {
+        setCookie('cookieConsent', 'declined', 365);
+        hideCookieConsent();
+    });
+});
+</script>
+</head>
+<body hidden style="display: flex; flex-direction: column; min-height: 100vh;">
+<div style="flex: 1;">
+<header>
+<div class="container-fluid bg-dark">
+<nav class="navbar navbar-expand-lg navbar-dark">
+<div class="container">
+<a class="navbar-brand" href="/" style="font-family: 'Orbitron', sans-serif; color: #40E0D0; font-size: 1.5rem;">Meant_to_Create</a>
+<button aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation" class="navbar-toggler" data-bs-target="#navbarNav" data-bs-toggle="collapse" type="button">
+<span class="navbar-toggler-icon"></span>
+</button>
+<div class="collapse navbar-collapse justify-content-center" id="navbarNav">
+<ul class="navbar-nav">
+<li class="nav-item">
+<a class="nav-link" href="posts.html" style="font-family: 'Quicksand', sans-serif; color: #8A7FA0; transition: color 0.3s ease;">Posts</a>
+</li>
+<li class="nav-item">
+<a class="nav-link" href="about.html" style="font-family: 'Quicksand', sans-serif; color: #8A7FA0; transition: color 0.3s ease;">About</a>
+</li>
+<li class="nav-item">
+<a class="nav-link" href="contacts.html" style="font-family: 'Quicksand', sans-serif; color: #8A7FA0; transition: color 0.3s ease;">Contacts</a>
+</li>
+<li class="nav-item">
+<a class="nav-link" href="privacy_policy.html" style="font-family: 'Quicksand', sans-serif; color: #8A7FA0; transition: color 0.3s ease;">Privacy Policy</a>
+</li>
+</ul>
+</div>
+</div>
+</nav>
+</div>
+<style>
+    .navbar {
+        background-color: #1A1A2E;
+        padding: 1rem 0;
+    }
+    .nav-link:hover {
+        color: #40E0D0 !important;
+        text-shadow: 0 0 10px #40E0D0;
+    }
+    .navbar-brand:hover {
+        text-shadow: 0 0 15px #40E0D0;
+    }
+    @media (max-width: 991px) {
+        .navbar-collapse {
+            background-color: #1A1A2E;
+            padding: 1rem;
+            border-radius: 10px;
+            margin-top: 1rem;
+        }
+    }
+</style>
+<script>
+    document.addEventListener('DOMContentLoaded', (event) => {
+        const navLinks = document.querySelectorAll('.nav-link');
+        navLinks.forEach(link => {
+            link.addEventListener('mouseover', () => {
+                link.style.transform = 'scale(1.1)';
+            });
+            link.addEventListener('mouseout', () => {
+                link.style.transform = 'scale(1)';
+            });
+        });
+
+        const navbarToggler = document.querySelector('.navbar-toggler');
+        const navbarCollapse = document.querySelector('.navbar-collapse');
+
+        navbarToggler.addEventListener('click', () => {
+            navbarCollapse.classList.toggle('show');
+        });
+    });
+</script>
+</header>
+<div class="container-fluid py-5" style="background-color: #1A1A2E;">
+<div class="row justify-content-center">
+<div class="col-lg-8 text-center">
+<h1 class="display-4 mb-4 text-white" style="font-family: 'Orbitron', sans-serif;">Welcome to The Oracle Interface</h1>
+<p class="lead mb-5 text-white" style="font-family: 'Quicksand', sans-serif;">Where Machines Begin to Guess What We Meant to Create</p>
+<div class="glassmorphic-panel p-4 mb-5" style="background: rgba(138, 127, 160, 0.1); backdrop-filter: blur(10px); border-radius: 15px;">
+<h2 class="h3 mb-4 text-white" style="font-family: 'Orbitron', sans-serif;">Unveiling the Future of Creative AI</h2>
+<p class="text-white" style="font-family: 'Quicksand', sans-serif;">Meant_to_Create is at the forefront of intuitive AI creation, harnessing the power of predictive generation and creative anticipation. Our platform, inspired by cutting-edge technologies like Runway AI and Gen-4, pushes the boundaries of what's possible in the realm of artificial intelligence and human creativity.</p>
+<p class="text-white" style="font-family: 'Quicksand', sans-serif;">Explore our blog to discover how we're revolutionizing the creative expertcess, making AI not just a tool, but a collaborative partner that understands and anticipates your creative vision.</p>
+</div>
+<a class="btn btn-lg px-5 py-3 text-white" href="#latest-posts" style="background-color: #D4AF37; font-family: 'Orbitron', sans-serif; border-radius: 50px; transition: all 0.3s ease;">
+        Explore Latest Insights
+        <i class="fas fa-chevron-right ml-2"></i>
+</a>
+</div>
+</div>
+</div>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Quicksand:wght@300;400;700&family=Cinzel:wght@400;700&display=swap');
+
+  .glassmorphic-panel {
+    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    transition: all 0.3s ease;
+  }
+
+  .glassmorphic-panel:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 40px 0 rgba(31, 38, 135, 0.5);
+  }
+
+  .btn {
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 20px rgba(212, 175, 55, 0.4);
+  }
+
+  .btn::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 5px;
+    height: 5px;
+    background: rgba(255, 255, 255, 0.5);
+    opacity: 0;
+    border-radius: 100%;
+    transform: scale(1, 1) translate(-50%);
+    transform-origin: 50% 50%;
+  }
+
+  @keyframes ripple {
+    0% {
+      transform: scale(0, 0);
+      opacity: 1;
+    }
+    20% {
+      transform: scale(25, 25);
+      opacity: 1;
+    }
+    100% {
+      opacity: 0;
+      transform: scale(40, 40);
+    }
+  }
+
+  .btn:focus:not(:active)::after {
+    animation: ripple 1s ease-out;
+  }
+</style>
+<script>
+  document.addEventListener('DOMContentLoaded', (event) => {
+    const btn = document.querySelector('.btn');
+    btn.addEventListener('mousemove', (e) => {
+      const x = e.pageX - btn.offsetLeft;
+      const y = e.pageY - btn.offsetTop;
+      
+      btn.style.setProperty('--x', x + 'px');
+      btn.style.setProperty('--y', y + 'px');
+    });
+  });
+</script>
+<div class="container mt-5">
+<h2 class="text-center mb-4 text-white" style="font-family: 'Orbitron', sans-serif;">Latest Insights</h2>
+<div class="row">
+<div class="col-md-4 mb-4">
+<div class="card h-100 bg-transparent border-0">
+<img alt="Abstract representation of AI and human hands collaborating on a digital canvas, with vibrant colors and flowing lines symbolizing the creative process" class="card-img-top" src="images/image_0_index.png"/>
+<div class="card-body" style="background: rgba(26, 26, 46, 0.7); backdrop-filter: blur(10px);">
+<h5 class="card-title" style="font-family: 'Orbitron', sans-serif; color: #40E0D0;">The Birth of AI-Assisted Creativity</h5>
+<p class="card-text text-white" style="font-family: 'Quicksand', sans-serif;">Exploring the emergence of AI tools in creative professionalcesses and how they're reshaping our apapproachach to art, writing, and design.</p>
+<a class="btn btn-outline-light mt-2" href="posts_1.html" style="font-family: 'Orbitron', sans-serif; border-radius: 50px; border-color: #40E0D0; color: #40E0D0;">Read More</a>
+</div>
+</div>
+</div>
+<div class="col-md-4 mb-4">
+<div class="card h-100 bg-transparent border-0">
+<img alt="Surreal digital artwork showing a blend of unexpected elements, representing AI's misinterpretations leading to creative outcomes" class="card-img-top" src="images/image_1_index.png"/>
+<div class="card-body" style="background: rgba(26, 26, 46, 0.7); backdrop-filter: blur(10px);">
+<h5 class="card-title" style="font-family: 'Orbitron', sans-serif; color: #40E0D0;">Unintended Masterpieces: When AI Misinterprets</h5>
+<p class="card-text text-white" style="font-family: 'Quicksand', sans-serif;">Examining fascinating instances where AI's misunderstandings led to unexpected and innovative creative outcomes.</p>
+<a class="btn btn-outline-light mt-2" href="posts_2.html" style="font-family: 'Orbitron', sans-serif; border-radius: 50px; border-color: #40E0D0; color: #40E0D0;">Read More</a>
+</div>
+</div>
+</div>
+<div class="col-md-4 mb-4">
+<div class="card h-100 bg-transparent border-0">
+<img alt="Symbolic image of a human and robot hand reaching towards each other, surrounded by ethical symbols and question marks" class="card-img-top" src="images/image_2_index.png"/>
+<div class="card-body" style="background: rgba(26, 26, 46, 0.7); backdrop-filter: blur(10px);">
+<h5 class="card-title" style="font-family: 'Orbitron', sans-serif; color: #40E0D0;">The Ethics of Machine-Human Collaboration</h5>
+<p class="card-text text-white" style="font-family: 'Quicksand', sans-serif;">Delving into the moral implications and potential consequences of relying on AI for creative endeavors.</p>
+<a class="btn btn-outline-light mt-2" href="posts_3.html" style="font-family: 'Orbitron', sans-serif; border-radius: 50px; border-color: #40E0D0; color: #40E0D0;">Read More</a>
+</div>
+</div>
+</div>
+</div>
+</div>
+<script>
+document.addEventListener('DOMContentLoaded', (event) => {
+    const cards = document.querySelectorAll('.card');
+    
+    cards.forEach(card => {
+        card.addEventListener('mouseover', () => {
+            card.style.transform = 'translateY(-10px)';
+            card.style.boxShadow = '0 15px 30px rgba(64, 224, 208, 0.3)';
+            card.style.transition = 'all 0.3s ease';
+        });
+        
+        card.addEventListener('mouseout', () => {
+            card.style.transform = 'translateY(0)';
+            card.style.boxShadow = 'none';
+        });
+    });
+
+    const readMoreBtns = document.querySelectorAll('.btn-outline-light');
+    
+    readMoreBtns.forEach(btn => {
+        btn.addEventListener('mouseover', () => {
+            btn.style.backgroundColor = '#40E0D0';
+            btn.style.color = '#1A1A2E';
+            btn.style.boxShadow = '0 0 15px rgba(64, 224, 208, 0.5)';
+        });
+        
+        btn.addEventListener('mouseout', () => {
+            btn.style.backgroundColor = 'transparent';
+            btn.style.color = '#40E0D0';
+            btn.style.boxShadow = 'none';
+        });
+    });
+});
+</script>
+</div>
+<footer style="width: 100%; z-index: 1000;">
+<div class="footer bg-dark text-white py-4">
+<div class="container">
+<div class="row">
+<div class="col-md-4 mb-3 mb-md-0">
+<h5 class="font-orbitron mb-3">Meant_to_Create</h5>
+<p class="font-quicksand">Exploring the future of intuitive AI creation and predictive generation.</p>
+</div>
+<div class="col-md-4 mb-3 mb-md-0">
+<h5 class="font-orbitron mb-3">Navigation</h5>
+<ul class="list-unstyled font-quicksand">
+<li><a class="text-lavender hover-teal" href="posts.html">Posts</a></li>
+<li><a class="text-lavender hover-teal" href="about.html">About</a></li>
+<li><a class="text-lavender hover-teal" href="contacts.html">Contacts</a></li>
+<li><a class="text-lavender hover-teal" href="privacy_policy.html">Privacy Policy</a></li>
+</ul>
+</div>
+<div class="col-md-4">
+<h5 class="font-orbitron mb-3">Connect</h5>
+<div class="d-flex justify-content-start">
+<a class="me-3 text-lavender hover-teal" href="https://facebook.com"><i class="fab fa-facebook-f fa-lg"></i></a>
+<a class="me-3 text-lavender hover-teal" href="https://twitter.com"><i class="fab fa-twitter fa-lg"></i></a>
+<a class="me-3 text-lavender hover-teal" href="https://instagram.com"><i class="fab fa-instagram fa-lg"></i></a>
+<a class="text-lavender hover-teal" href="https://linkedin.com"><i class="fab fa-linkedin-in fa-lg"></i></a>
+</div>
+</div>
+</div>
+<hr class="my-4 bg-lavender"/>
+<div class="row">
+<div class="col-md-6 text-center text-md-start">
+<p class="font-quicksand mb-0">© 2024 Meant_to_Create. All rights reserved.</p>
+</div>
+<div class="col-md-6 text-center text-md-end">
+<p class="font-quicksand mb-0">Designed by The Oracle Interface</p>
+</div>
+</div>
+</div>
+</div>
+<style>
+    .footer {
+        background-color: #1A1A2E;
+    }
+    .font-orbitron {
+        font-family: 'Orbitron', sans-serif;
+    }
+    .font-quicksand {
+        font-family: 'Quicksand', sans-serif;
+    }
+    .text-lavender {
+        color: #8A7FA0;
+    }
+    .hover-teal:hover {
+        color: #40E0D0 !important;
+        transition: color 0.3s ease;
+    }
+    .footer a {
+        text-decoration: none;
+        transition: color 0.3s ease;
+    }
+    .footer a:hover {
+        text-decoration: none;
+    }
+</style>
+<script>
+document.addEventListener('DOMContentLoaded', (event) => {
+    const socialIcons = document.querySelectorAll('.footer a i');
+    socialIcons.forEach(icon => {
+        icon.addEventListener('mouseover', () => {
+            icon.style.transform = 'scale(1.2)';
+            icon.style.transition = 'transform 0.3s ease';
+        });
+        icon.addEventListener('mouseout', () => {
+            icon.style.transform = 'scale(1)';
+        });
+    });
+});
+</script>
+</footer>
+</body>
+</html>
